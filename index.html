@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b13">
+<title>Orbit 8D — Audio Studio</title>
+<style>
+:root{color-scheme:dark;--bg:#090b13;--panel:#111522;--line:#252b40;--muted:#a0a8bd;--text:#f7f8ff;--purple:#9b87ff;--cyan:#69e2ed}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#252044 0,transparent 48%),var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);min-height:100vh}
+main{max-width:760px;margin:auto;padding:28px 16px 50px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}.logo{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:grid;place-items:center;color:#080b14;font-size:21px}
+.hero{text-align:center;padding:36px 0 24px}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(36px,8vw,58px);line-height:1.02;margin:13px 0;background:linear-gradient(100deg,#fff 20%,#b7aaff 55%,#79edf0);background-clip:text;color:transparent;letter-spacing:-2px}.hero p{color:var(--muted);line-height:1.6;max-width:500px;margin:0 auto;font-size:15px}
+.panel{background:linear-gradient(145deg,#151a2b,#0f1320);border:1px solid var(--line);border-radius:22px;padding:20px;margin:14px 0;box-shadow:0 16px 45px #0002}.upload{border:1.5px dashed #55517e;border-radius:17px;padding:25px 14px;text-align:center;background:#17162a;cursor:pointer;transition:.2s}.upload:active{transform:scale(.99)}.upload .emoji{font-size:32px}.upload h2{font-size:17px;margin:10px 0 5px}.upload p{font-size:12px;color:var(--muted);margin:0}.filename{font-size:13px;color:var(--cyan);margin-top:12px;overflow-wrap:anywhere}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.section-title{font-size:15px;font-weight:750;margin:0 0 17px}.preset-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.preset{border:1px solid var(--line);background:#0e1220;color:var(--text);border-radius:13px;padding:13px;text-align:left;cursor:pointer}.preset.active{border-color:var(--purple);background:#292342;box-shadow:inset 0 0 0 1px #9b87ff55}.preset strong{display:block;font-size:13px}.preset span{font-size:11px;color:var(--muted);display:block;margin-top:4px}
+.control{margin:20px 0 0}.control .row{font-size:13px;color:#e9eaff;margin-bottom:10px}.value{color:var(--cyan);font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--purple)}.hint{font-size:11px;color:var(--muted);line-height:1.5;margin-top:7px}
+.btn{width:100%;border:0;border-radius:14px;padding:15px 18px;font-size:15px;font-weight:800;cursor:pointer;color:#0a0b13;background:linear-gradient(100deg,#b4a4ff,#6ce7ee);margin-top:12px}.btn:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#20263a;color:var(--text);border:1px solid var(--line)}.status{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px;text-align:center;min-height:18px}.players{display:grid;gap:12px}.player{padding:13px;border:1px solid var(--line);border-radius:13px;background:#0b0f1b}.player label{display:block;font-size:12px;font-weight:700;margin-bottom:8px}.player audio{width:100%;height:38px}.small{font-size:11px;color:var(--muted);line-height:1.5}.footer{text-align:center;color:#7f879d;font-size:11px;margin-top:24px;line-height:1.7}#fileInput{display:none}
+@media(min-width:560px){.preset-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.panel{padding:24px}.hero{padding-top:48px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><div class="logo">◉</div><span>ORBIT <span style="color:var(--cyan)">8D</span></span><span style="margin-left:auto;color:var(--muted);font-size:11px;font-weight:600">AUDIO STUDIO</span></div>
+  <header class="hero"><div class="eyebrow">MAKE YOUR SOUND MOVE</div><h1>LET IT ORBIT.</h1><p>Turn an audio file into a floating, ear-to-ear headphone experience. Upload, preview, tweak the movement, then download.</p></header>
+  <section class="panel">
+    <h2 class="section-title">01 / Choose your audio</h2>
+    <label class="upload" for="fileInput"><div class="emoji">🎧</div><h2>Tap to upload a track</h2><p>MP3, WAV, M4A, AAC, OGG or FLAC (browser support varies)</p><div class="filename" id="filename">No audio selected yet</div></label>
+    <input id="fileInput" type="file" accept="audio/*">
+    <div class="small" style="margin-top:12px">Your audio is processed in this browser and is not uploaded to a server. Use audio you have permission to edit.</div>
+  </section>
+  <section class="panel">
+    <h2 class="section-title">02 / Pick the vibe</h2>
+    <div class="preset-grid">
+      <button class="preset" data-preset="gentle"><strong>☁️ Gentle float</strong><span>Soft, dreamy motion</span></button>
+      <button class="preset active" data-preset="classic"><strong>🌀 Classic 8D</strong><span>Balanced ear-to-ear</span></button>
+      <button class="preset" data-preset="deep"><strong>🌌 Deep space</strong><span>Slower, roomier feel</span></button>
+      <button class="preset" data-preset="fast"><strong>⚡ Fast orbit</strong><span>More obvious movement</span></button>
+    </div>
+    <div class="control"><div class="row"><label for="speed">Orbit speed</label><span class="value" id="speedVal">8 sec / circle</span></div><input id="speed" type="range" min="4" max="20" value="8" step="1"><div class="hint">Lower seconds = faster movement. Start around 8–12 seconds for a smooth float.</div></div>
+    <div class="control"><div class="row"><label for="width">Left ↔ right movement</label><span class="value" id="widthVal">90%</span></div><input id="width" type="range" min="20" max="100" value="90" step="5"></div>
+    <div class="control"><div class="row"><label for="space">Space / reverb</label><span class="value" id="spaceVal">18%</span></div><input id="space" type="range" min="0" max="45" value="18" step="1"><div class="hint">A little space can make the sound feel wider. Too much can blur vocals.</div></div>
+    <button class="btn" id="convertBtn" disabled>✦ Create my 8D audio</button>
+    <div class="status" id="status" role="status">Choose an audio file to get started.</div>
+  </section>
+  <section class="panel">
+    <h2 class="section-title">03 / Listen & download</h2>
+    <div class="players">
+      <div class="player"><label>Original audio</label><audio id="originalPlayer" controls preload="metadata"></audio></div>
+      <div class="player"><label>Orbit 8D result</label><audio id="resultPlayer" controls preload="metadata"></audio><div class="small" id="resultInfo" style="margin-top:7px">Your converted track will appear here.</div></div>
+    </div>
+    <a id="downloadLink" class="btn" href="#" download="orbit-8d.wav" style="display:none;text-align:center;text-decoration:none">⬇ Download 8D WAV</a>
+    <div class="small" style="margin-top:12px">Tip: put on earbuds or headphones and start at a comfortable volume. WAV keeps good quality but the file can be large.</div>
+  </section>
+  <div class="footer">ORBIT 8D · Made for creative audio edits<br>8D is a stereo effect, not true surround sound. The result depends on the original track and your headphones.</div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const fileInput=$('fileInput'), convertBtn=$('convertBtn'), status=$('status');
+let file=null, originalUrl='', resultUrl='';
+const presets={
+ gentle:{speed:14,width:55,space:12},
+ classic:{speed:8,width:90,space:18},
+ deep:{speed:16,width:75,space:30},
+ fast:{speed:5,width:100,space:10}
+};
+function updateLabels(){
+ $('speedVal').textContent=$('speed').value+' sec / circle';
+ $('widthVal').textContent=$('width').value+'%';
+ $('spaceVal').textContent=$('space').value+'%';
+}
+['speed','width','space'].forEach(id=>$(id).addEventListener('input',updateLabels));
+document.querySelectorAll('.preset').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.preset').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ const p=presets[btn.dataset.preset];
+ $('speed').value=p.speed;$('width').value=p.width;$('space').value=p.space;updateLabels();
+}));
+fileInput.addEventListener('change',()=>{
+ const picked=fileInput.files&&fileInput.files[0]; if(!picked)return;
+ if(!picked.type.startsWith('audio/')){status.textContent='Please choose an audio file.';return;}
+ file=picked;
+ if(originalUrl)URL.revokeObjectURL(originalUrl);
+ originalUrl=URL.createObjectURL(file);
+ $('filename').textContent=file.name;
+ $('originalPlayer').src=originalUrl;
+ convertBtn.disabled=false;
+ status.textContent='Ready when you are. Pick a vibe, then create your 8D version.';
+ $('resultPlayer').removeAttribute('src');$('downloadLink').style.display='none';
+ if(resultUrl){URL.revokeObjectURL(resultUrl);resultUrl='';}
+});
+function makeImpulse(ctx,seconds=1.6,decay=3){
+ const length=Math.floor(ctx.sampleRate*seconds), impulse=ctx.createBuffer(2,length,ctx.sampleRate);
+ for(let ch=0;ch<2;ch++){const d=impulse.getChannelData(ch);for(let i=0;i<length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/length,decay);}
+ return impulse;
+}
+function bufferToWav(buffer){
+ const channels=2, sampleRate=buffer.sampleRate, frames=buffer.length;
+ const left=buffer.numberOfChannels>0?buffer.getChannelData(0):new Float32Array(frames);
+ const right=buffer.numberOfChannels>1?buffer.getChannelData(1):left;
+ const bytes=44+frames*channels*2, out=new ArrayBuffer(bytes), v=new DataView(out);
+ function str(o,s){for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i));}
+ str(0,'RIFF');v.setUint32(4,36+frames*channels*2,true);str(8,'WAVE');str(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,channels,true);v.setUint32(24,sampleRate,true);v.setUint32(28,sampleRate*channels*2,true);v.setUint16(32,channels*2,true);v.setUint16(34,16,true);str(36,'data');v.setUint32(40,frames*channels*2,true);
+ let offset=44;
+ for(let i=0;i<frames;i++){
+   let l=Math.max(-1,Math.min(1,left[i])),r=Math.max(-1,Math.min(1,right[i]));
+   // gentle safety limiting
+   l=l/(1+Math.abs(l)*0.12);r=r/(1+Math.abs(r)*0.12);
+   v.setInt16(offset,l<0?l*32768:l*32767,true);offset+=2;
+   v.setInt16(offset,r<0?r*32768:r*32767,true);offset+=2;
+ }
+ return new Blob([out],{type:'audio/wav'});
+}
+convertBtn.addEventListener('click',async()=>{
+ if(!file)return;
+ convertBtn.disabled=true;convertBtn.textContent='⏳ Creating your orbit...';
+ status.textContent='Loading audio into your browser…';
+ try{
+   const bytes=await file.arrayBuffer();
+   const decodeCtx=new (window.AudioContext||window.webkitAudioContext)();
+   const sourceBuffer=await decodeCtx.decodeAudioData(bytes.slice(0));
+   const duration=sourceBuffer.duration;
+   if(duration>600)throw new Error('For best performance on a phone, use a track or clip under 10 minutes.');
+   const sampleRate=Math.min(sourceBuffer.sampleRate,44100);
+   status.textContent='Rendering the left-to-right movement and space effect…';
+   const offline=new OfflineAudioContext(2,Math.ceil(duration*sampleRate),sampleRate);
+   const src=offline.createBufferSource();src.buffer=sourceBuffer;
+   const panner=offline.createStereoPanner();
+   const width=Number($('width').value)/100, seconds=Number($('speed').value);
+   panner.pan.value=0;
+   const lfo=offline.createOscillator(), depth=offline.createGain();
+   lfo.type='sine';lfo.frequency.value=1/seconds;depth.gain.value=width;
+   lfo.connect(depth);depth.connect(panner.pan);
+   const dry=offline.createGain();dry.gain.value=1;
+   src.connect(panner);panner.connect(dry);dry.connect(offline.destination);
+   const space=Number($('space').value)/100;
+   if(space>0){
+     const convolver=offline.createConvolver();convolver.buffer=makeImpulse(offline,1.4,2.8);
+     const wet=offline.createGain();wet.gain.value=space*0.42;
+     src.connect(convolver);convolver.connect(wet);wet.connect(offline.destination);
+   }
+   src.start(0);lfo.start(0);
+   const rendered=await offline.startRendering();
+   const wav=bufferToWav(rendered);
+   if(resultUrl)URL.revokeObjectURL(resultUrl);
+   resultUrl=URL.createObjectURL(wav);
+   $('resultPlayer').src=resultUrl;
+   $('downloadLink').href=resultUrl;
+   $('downloadLink').download=(file.name.replace(/\.[^.]+$/,'')||'audio')+'-orbit-8d.wav';
+   $('downloadLink').style.display='block';
+   $('resultInfo').textContent=`Done · ${(duration/60).toFixed(2)} min · Stereo WAV · ${(wav.size/1024/1024).toFixed(1)} MB`;
+   status.textContent='Your 8D version is ready. Listen with headphones, then download it below.';
+   await decodeCtx.close();
+ }catch(err){
+   console.error(err);
+   status.textContent=err.message||'Could not process this file. Try a shorter MP3 or WAV file.';
+ }finally{
+   convertBtn.disabled=!file;convertBtn.textContent='✦ Create my 8D audio';
+ }
+});
+updateLabels();
+</script>
+</body>
+</html>
