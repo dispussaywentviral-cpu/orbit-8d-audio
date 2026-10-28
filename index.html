@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#090b13">
-<title>Orbit 8D — Auto Spatial Audio</title>
+<title>AFTERGLOW — Immersive Lyric Studio</title>
 <style>
 :root{color-scheme:dark;--bg:#090b13;--panel:#121727;--line:#272e45;--muted:#a2abc1;--text:#f8f9ff;--purple:#a38cff;--cyan:#70e7ed}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -12%,#30244e 0,transparent 46%),var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);min-height:100vh}
@@ -17,18 +17,18 @@ main{max-width:760px;margin:auto;padding:24px 15px 46px}.brand{display:flex;alig
 </style>
 </head>
 <body><main>
-<div class="brand"><div class="logo">◉</div><span>ORBIT <span style="color:var(--cyan)">8D</span></span><small>AUTO SPATIAL STUDIO</small></div>
-<header class="hero"><div class="eyebrow">UPLOAD · LET THE AI-STYLE ENGINE WORK</div><h1>FEEL THE<br>WHOLE SONG.</h1><p>One upload. One tap. Orbit automatically searches for a strong one-minute section and builds a smoother, more immersive headphone mix.</p></header>
+<div class="brand"><div class="logo">◉</div><span>AFTERGLOW <span style="color:var(--cyan)">STUDIO</span></span><small>IMMERSIVE LYRIC STUDIO</small></div>
+<header class="hero"><div class="eyebrow">YOUR SONG · YOUR VISUAL WORLD</div><h1>HEAR IT<br>FEEL DIFFERENT.</h1><p>Deep, clear headphone sound with a cinematic lyric video in your own visual style. Upload audio for a finished soundtrack, or use a Spotify link to build the visual edit.</p></header>
 <section class="panel">
-<div class="step">01 / YOUR TRACK</div>
-<label class="upload" for="fileInput"><div class="emoji">🎧</div><h2>Tap to choose a song</h2><p>MP3, WAV, M4A, AAC, OGG or FLAC<br>Supported formats depend on your browser.</p><div id="filename" class="filename">No track selected</div></label>
+<div class="step">01 / CHOOSE YOUR SONG</div>
+<label class="upload" for="fileInput"><div class="emoji">🎧</div><h2>Upload a high-quality audio file</h2><p>MP3, WAV, M4A, AAC, OGG or FLAC<br>Supported formats depend on your browser.</p><div id="filename" class="filename">No track selected</div></label>
 <input id="fileInput" type="file" accept="audio/*">
-<div class="hint">Your file is processed locally in this browser; it is not sent to a server. Use audio you have permission to edit.</div>
+<div class="hint">For the cleanest finished sound, use a high-quality audio file you have permission to edit. Audio is processed locally in your browser.</div>
 </section>
 
 <section class="panel">
-<div class="step">OPTIONAL / SPOTIFY TRACK CARD</div>
-<p style="font-size:13px;color:var(--muted);line-height:1.6;margin-top:-4px">Paste a Spotify song link to preview it here and add a matching now-playing card to your exported video.</p>
+<div class="step">SPOTIFY LINK / OPTIONAL AUDIO SOURCE</div>
+<p style="font-size:13px;color:var(--muted);line-height:1.6;margin-top:-4px">Paste a Spotify song link to show the track card and continue building your video even if you do not have an audio file.</p>
 <label for="spotifyUrl" style="display:block;font-size:12px;font-weight:750;margin:12px 0 7px">Spotify track link</label>
 <input id="spotifyUrl" type="url" inputmode="url" placeholder="https://open.spotify.com/track/…" style="width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:#0b101c;color:var(--text);font:inherit;font-size:13px">
 <label for="trackTitle" style="display:block;font-size:12px;font-weight:750;margin:12px 0 7px">Song title for the video card (optional)</label>
@@ -36,29 +36,39 @@ main{max-width:760px;margin:auto;padding:24px 15px 46px}.brand{display:flex;alig
 <button id="spotifyPreviewBtn" class="btn" style="background:linear-gradient(100deg,#1ed760,#b7f7c8);margin-top:12px">♫ Preview Spotify track</button>
 <div id="spotifyStatus" class="status">Paste a Spotify link to preview it and add a now-playing card. Upload an audio file for processing.</div>
 <div id="spotifyEmbed" style="display:none;margin-top:12px;border-radius:14px;overflow:hidden;background:#101318"></div>
-<div class="hint">For actual 8D processing and video audio, upload a high-quality audio file you have permission to edit. Spotify does not expose raw song audio to this browser, so the link is for preview and the visual now-playing card only.</div>
+<div class="hint">Spotify links can preview the song and show its title card, but they cannot supply raw audio to this browser. To export a video with music already inside it, upload an audio file too. With only a Spotify link, you can still export the visuals and add the song inside TikTok or Instagram.</div>
 </section>
 
 <section class="panel">
-<div class="step">02 / CHOOSE YOUR WORLD</div>
-<p style="font-size:13px;color:var(--muted);line-height:1.6;margin-top:-4px">Pick the room that matches your song's mood. The stickman story, lighting and floating sequence are animated automatically.</p>
+<div class="step">02 / PICK YOUR VIDEO THEME</div>
+<p style="font-size:13px;color:var(--muted);line-height:1.6;margin-top:-4px">Choose a visual identity for this video. The background, colours, lighting and lyric treatment follow the theme.</p>
 <div class="room-grid" id="roomGrid">
-<button class="room-option active" data-room="cosmic"><b>🌌 Cosmic dream</b><span>Violet nebula, stars, gravity-free bed</span></button>
-<button class="room-option" data-room="abyss"><b>🌊 Deep ocean</b><span>Blue waves, underwater light rays</span></button>
-<button class="room-option" data-room="neon"><b>🌃 Neon after-hours</b><span>Electric city glow, pink and cyan</span></button>
-<button class="room-option" data-room="moon"><b>🌙 Moonlit liminal</b><span>Quiet dark room, moonlight, haze</span></button>
+<button class="room-option active" data-room="cosmic"><b>🌌 Dream haze</b><span>Soft nebula, glow, drifting light</span></button>
+<button class="room-option" data-room="abyss"><b>🌊 Blue hour</b><span>Deep blue atmosphere and slow waves</span></button>
+<button class="room-option" data-room="neon"><b>🌃 After-hours</b><span>Midnight city glow, pink and cyan</span></button>
+<button class="room-option" data-room="moon"><b>🌙 Quiet cinema</b><span>Moonlight, film grain, slow haze</span></button>
 </div>
-<div class="hint">The website can analyse audio energy, but it cannot reliably understand the song's lyrics or emotions. Choose the visual mood you want.</div>
+<div class="hint">Your selected theme gives each video its own signature. Add timed lyrics below for the closest sync; the site cannot read song lyrics directly from Spotify.</div>
 </section>
 <section class="panel">
-<div class="step">03 / AUTOMATIC MASTERING</div>
+<div class="step">LYRICS / MAKE THE WORDS MOVE WITH THE MUSIC</div>
+<p style="font-size:13px;color:var(--muted);line-height:1.6;margin-top:-4px">For reliable timing, upload an .LRC lyric-timing file. Or paste lyric lines and they will appear one by one across the minute (approximate timing, not automatic speech recognition).</p>
+<label for="lyricsText" style="display:block;font-size:12px;font-weight:750;margin:12px 0 7px">Paste lyrics (optional)</label>
+<textarea id="lyricsText" rows="4" placeholder="Paste a few lyric lines here…" style="width:100%;resize:vertical;padding:13px;border:1px solid var(--line);border-radius:12px;background:#0b101c;color:var(--text);font:inherit;font-size:13px;line-height:1.5"></textarea>
+<label for="lrcFile" style="display:block;font-size:12px;font-weight:750;margin:12px 0 7px">Or upload timed lyrics (.lrc)</label>
+<input id="lrcFile" type="file" accept=".lrc,.txt,text/plain" style="width:100%;font-size:12px;color:var(--muted)">
+<div id="lyricsStatus" class="hint">No lyrics added yet. Spotify does not provide lyric text to this page automatically.</div>
+</section>
+
+<section class="panel">
+<div class="step">03 / SOUND & LYRICS</div>
 <div class="feature-grid">
-<div class="feature"><b>✦ Best-minute scan</b><span>Looks for a high-energy, changing section around 60 seconds long.</span></div>
-<div class="feature"><b>◎ 3D orbit</b><span>Smooth spatial movement designed for headphones, not a predictable ping-pong.</span></div>
-<div class="feature"><b>〰 Space & depth</b><span>Automatically blends a subtle room tail with the moving sound.</span></div>
-<div class="feature"><b>↗ Keep the music</b><span>Preserves a little original stereo track to help the song stay full.</span></div>
+<div class="feature"><b>✦ Best-minute scan</b><span>Finds a lively section from your uploaded audio.</span></div>
+<div class="feature"><b>◎ Deep stereo</b><span>Subtle width and depth while keeping normal listening loudness.</span></div>
+<div class="feature"><b>〰 Clear space</b><span>Gentle ambience adds depth without drowning the vocals.</span></div>
+<div class="feature"><b>↗ Keep it natural</b><span>No aggressive volume boost or constant ear-to-ear panning.</span></div>
 </div>
-<button id="makeBtn" class="btn" disabled>✦ Find the best part & create 8D</button>
+<button id="makeBtn" class="btn" disabled>✦ Build my sound & lyric video</button>
 <div id="progress" class="progress"><span id="progressFill"></span></div>
 <div id="status" class="status">Upload a track to begin.</div>
 </section>
@@ -66,21 +76,31 @@ main{max-width:760px;margin:auto;padding:24px 15px 46px}.brand{display:flex;alig
 <div class="step">04 / LISTEN, WATCH & SAVE</div>
 <div class="player"><label>Your selected one-minute section</label><audio id="clipPlayer" controls></audio><div id="clipMeta" class="meta"></div></div>
 <div class="player"><label>Orbit 8D version</label><audio id="outPlayer" controls></audio><div id="outMeta" class="meta"></div></div>
-<a id="download" class="btn download" download="orbit-8d-best-minute.wav">⬇ Download finished WAV</a>
-<div style="margin-top:24px;font-weight:800;font-size:14px">Your one-minute visual story</div>
-<p class="hint" style="margin-top:5px">A vertical 9:16 animation: the stickman enters the chosen room, reaches the bed, lies down, then floats as the music continues.</p>
+<a id="download" class="btn download" download="afterglow-deep-stereo.wav">⬇ Download finished WAV</a>
+<div style="margin-top:24px;font-weight:800;font-size:14px">Your one-minute lyric video</div>
+<p class="hint" style="margin-top:5px">A vertical 9:16 cinematic visual with a custom theme, song card and animated lyrics.</p>
 <canvas id="sceneCanvas" class="video-canvas" width="720" height="1280"></canvas>
-<button id="videoBtn" class="btn video-btn">✦ Create 1-minute music video</button>
-<div id="videoStatus" class="status">Generate the audio first. Video export records the animation in real time and may take about one minute.</div>
-<a id="videoDownload" class="btn download" style="display:none" download="orbit-8d-music-video.mp4">⬇ Download music video (MP4)</a>
+<button id="videoBtn" class="btn video-btn">✦ Export 1-minute MP4</button>
+<div id="videoStatus" class="status">If you uploaded audio, it is included in the MP4. With a Spotify link only, export the visuals and add the song in TikTok/Instagram.</div>
+<a id="videoDownload" class="btn download" style="display:none" download="afterglow-lyric-video.mp4">⬇ Download music video (MP4)</a>
 <div class="hint">Listen with headphones at a comfortable volume. Different songs and earbuds will sound different.</div>
 </section>
-<div class="footer">ORBIT 8D · Automatic browser audio processing<br>“8D” is a creative stereo/spatial effect, not true physical surround sound. The one-minute picker estimates musical interest from audio features; it cannot understand lyrics or guarantee the objectively best moment.</div>
+<div class="footer">AFTERGLOW STUDIO · Local browser processing<br>Audio enhancement is subtle stereo depth, not true physical surround. Lyrics are timed from supplied text or an LRC file; Spotify alone does not expose lyrics or raw audio.</div>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 let selectedFile=null, originalURL='', clipURL='', outputURL='', processedBuffer=null, chosenRoom='cosmic';
 const AudioCtx=window.AudioContext||window.webkitAudioContext;
+function spotifyTrackId(){
+ const raw=($('spotifyUrl')?.value||'').trim();
+ const m=raw.match(/open\.spotify\.com\/(?:intl-[a-z]{2}\/)?track\/([A-Za-z0-9]+)/i)||raw.match(/spotify:track:([A-Za-z0-9]+)/i);
+ return m?m[1]:'';
+}
+function refreshBuildButton(){
+ const hasSpotify=!!spotifyTrackId();
+ $('makeBtn').disabled=!(selectedFile||hasSpotify);
+ $('makeBtn').textContent=selectedFile?'✦ Build my sound & lyric video':(hasSpotify?'✦ Continue with Spotify visual':'✦ Build my sound & lyric video');
+}
 document.querySelectorAll('.room-option').forEach(b=>b.addEventListener('click',()=>{
  document.querySelectorAll('.room-option').forEach(x=>x.classList.remove('active'));b.classList.add('active');chosenRoom=b.dataset.room;drawScene(0);
 }));
@@ -91,17 +111,18 @@ $('spotifyPreviewBtn')?.addEventListener('click',()=>{
  const id=match[1];
  $('spotifyEmbed').innerHTML=`<iframe title="Spotify track preview" src="https://open.spotify.com/embed/track/${id}?utm_source=generator&theme=0" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
  $('spotifyEmbed').style.display='block';
- $('spotifyStatus').textContent='Spotify player loaded. This preview cannot be routed into the 8D processor; upload the same track as an audio file to create the mix.';
+ $('spotifyStatus').textContent='Spotify link accepted. You can continue to make a visual video. Spotify does not let this website capture the song audio, so upload an audio file if you want music included in the exported MP4.';
  if(!$('trackTitle').value.trim())$('trackTitle').value='Spotify track';
- drawScene(0);
+ refreshBuildButton();drawScene(0);
 });
 $('trackTitle')?.addEventListener('input',()=>drawScene(0));
+$('spotifyUrl')?.addEventListener('input',()=>{refreshBuildButton();if(spotifyTrackId())$('spotifyStatus').textContent='Spotify link detected. Tap Preview Spotify track to show the player; you can continue to the visual editor now.';});
 
 $('fileInput').addEventListener('change',()=>{
  const f=$('fileInput').files?.[0]; if(!f)return;
  if(!f.type.startsWith('audio/')){$('status').textContent='Please select an audio file.';return;}
  selectedFile=f;$('filename').textContent=f.name;
- $('makeBtn').disabled=false;$('status').textContent='Ready. Tap once and let Orbit analyse the track.';
+ refreshBuildButton();$('status').textContent='Audio ready. Build a natural, spacious mix and lyric video.';
  $('resultPanel').style.display='none';processedBuffer=null;
  [originalURL,clipURL,outputURL].forEach(u=>{if(u)URL.revokeObjectURL(u)});
  originalURL=clipURL=outputURL='';
@@ -167,37 +188,37 @@ function wavBlob(buffer){
 async function renderSpatial(ctxBuffer,sourceBuffer){
  const duration=sourceBuffer.duration,sr=sourceBuffer.sampleRate;
  const offline=new OfflineAudioContext(2,Math.ceil(duration*sr),sr);
- // Original stereo at a restrained level keeps the song's mix present.
- const original=offline.createBufferSource();original.buffer=sourceBuffer;
- const originalGain=offline.createGain();originalGain.gain.value=.48;
- original.connect(originalGain);originalGain.connect(offline.destination);
- // Sum the source to mono, then spatialize it with HRTF and a smoothly changing, non-repeating orbit.
- const mono=offline.createBuffer(1,sourceBuffer.length,sr);
- const md=mono.getChannelData(0);
- for(let i=0;i<md.length;i++){
-  let x=0;for(let c=0;c<sourceBuffer.numberOfChannels;c++)x+=sourceBuffer.getChannelData(c)[i];
-  md[i]=x/sourceBuffer.numberOfChannels;
+ const source=offline.createBufferSource();
+ let inputBuffer=sourceBuffer;
+ if(sourceBuffer.numberOfChannels===1){
+  inputBuffer=offline.createBuffer(2,sourceBuffer.length,sr);
+  inputBuffer.copyToChannel(sourceBuffer.getChannelData(0),0);
+  inputBuffer.copyToChannel(sourceBuffer.getChannelData(0),1);
  }
- const moving=offline.createBufferSource();moving.buffer=mono;
- const p=offline.createPanner();p.panningModel='HRTF';p.distanceModel='inverse';p.refDistance=1;p.maxDistance=10000;p.rolloffFactor=0;p.coneInnerAngle=360;p.coneOuterAngle=360;p.coneOuterGain=1;
- const movingGain=offline.createGain();movingGain.gain.value=.72;
- moving.connect(p);p.connect(movingGain);movingGain.connect(offline.destination);
- const lfo1=offline.createOscillator(),lfo2=offline.createOscillator(),lfo3=offline.createOscillator();
- const gx=offline.createGain(),gy=offline.createGain(),gz=offline.createGain();
- // Two incommensurate, slowly changing paths prevent an obvious left-right ping-pong.
- lfo1.type='sine';lfo1.frequency.value=1/7.7;
- lfo2.type='sine';lfo2.frequency.value=1/12.9;
- lfo3.type='sine';lfo3.frequency.value=1/18.3;
- gx.gain.value=2.25;gy.gain.value=1.05;gz.gain.value=.85;
- lfo1.connect(gx);gx.connect(p.positionX);lfo2.connect(gy);gy.connect(p.positionY);lfo3.connect(gz);gz.connect(p.positionZ);
- const convolver=offline.createConvolver();convolver.buffer=createImpulse(offline,1.25,3.2);
- const wet=offline.createGain();wet.gain.value=.13;
- moving.connect(convolver);convolver.connect(wet);wet.connect(offline.destination);
- const master=offline.createDynamicsCompressor();master.threshold.value=-12;master.knee.value=18;master.ratio.value=2.2;master.attack.value=.008;master.release.value=.18;
- // Compress spatial channels and original together by routing through a shared master bus.
- // The graph above is intentionally direct for browser compatibility.
- original.start(0);moving.start(0);lfo1.start(0);lfo2.start(0);lfo3.start(0);
- return await offline.startRendering();
+ source.buffer=inputBuffer;
+ const master=offline.createGain();master.gain.value=.86;
+ const compressor=offline.createDynamicsCompressor();
+ compressor.threshold.value=-10;compressor.knee.value=16;compressor.ratio.value=1.6;compressor.attack.value=.012;compressor.release.value=.22;
+ const low=offline.createBiquadFilter();low.type='lowshelf';low.frequency.value=120;low.gain.value=.6;
+ const high=offline.createBiquadFilter();high.type='highshelf';high.frequency.value=8500;high.gain.value=.8;
+ // Preserve the stereo image, add only a tiny crossfeed/widening amount, and use restrained ambience.
+ const splitter=offline.createChannelSplitter(2), merger=offline.createChannelMerger(2);
+ const left=offline.createGain(),right=offline.createGain(),crossL=offline.createGain(),crossR=offline.createGain();
+ left.gain.value=.94;right.gain.value=.94;crossL.gain.value=.06;crossR.gain.value=.06;
+ source.connect(splitter);
+ splitter.connect(left,0);splitter.connect(crossR,0);
+ splitter.connect(right,1);splitter.connect(crossL,1);
+ left.connect(merger,0,0);crossL.connect(merger,0,0);
+ right.connect(merger,0,1);crossR.connect(merger,0,1);
+ merger.connect(low);low.connect(high);high.connect(compressor);compressor.connect(master);master.connect(offline.destination);
+ const send=offline.createGain();send.gain.value=.075;
+ const convolver=offline.createConvolver();convolver.buffer=createImpulse(offline,.9,4.0);
+ high.connect(send);send.connect(convolver);convolver.connect(offline.destination);
+ source.start(0);
+ const rendered=await offline.startRendering();
+ let peak=0;for(let c=0;c<rendered.numberOfChannels;c++){const a=rendered.getChannelData(c);for(let i=0;i<a.length;i+=8)peak=Math.max(peak,Math.abs(a[i]));}
+ if(peak>.92){const gain=.92/peak;for(let c=0;c<rendered.numberOfChannels;c++){const a=rendered.getChannelData(c);for(let i=0;i<a.length;i++)a[i]*=gain;}}
+ return rendered;
 }
 // Procedural 9:16 stickman animation: hallway, opening door, bed, then levitation.
 const scene=$('sceneCanvas'), g=scene.getContext('2d');
@@ -324,22 +345,54 @@ function drawScene(t){
  const intensity=ease((t-31)/16);
  for(let k=0;k<4;k++){g.beginPath();for(let xx=0;xx<=W;xx+=8){const yy=H*(.48+k*.035)+Math.sin(xx*.009+t*.65+k)*7*intensity+Math.sin(xx*.021-t*.4)*4;xx===0?g.moveTo(xx,yy):g.lineTo(xx,yy);}g.strokeStyle=C(p.accent,.025+intensity*.09);g.lineWidth=3;g.stroke();}
  for(let i=0;i<24;i++){const xx=(i*137.3+Math.sin(t*.25+i)*11)%W,yy=(i*191.7-t*1.8+H*4)%H;g.globalAlpha=.08+((i*13)%18)/100;g.fillStyle=i%3===0?p.accent:'#fff';g.beginPath();g.arc(xx,yy,1+(i%2),0,Math.PI*2);g.fill();}g.globalAlpha=1;
- // Elegant minimal music-card overlay, filled from the optional title field.
- const songTitle=($('trackTitle')?.value||'').trim()||'YOUR SONG';
- g.save();g.fillStyle='rgba(7,9,17,.70)';g.beginPath();g.roundRect(W*.07,H*.035,W*.86,H*.075,18);g.fill();
- g.fillStyle='#1ed760';g.beginPath();g.arc(W*.115,H*.072,16,0,Math.PI*2);g.fill();g.fillStyle='#06100a';g.font='bold 19px system-ui';g.textAlign='center';g.fillText('▶',W*.115,H*.079);
+ // Music-card overlay for the selected song.
+ const songTitle=($('trackTitle')?.value||'').trim()||(($('fileInput')?.files?.[0]?.name||'').replace(/\.[^.]+$/,'')||'YOUR SONG');
+ g.save();g.fillStyle='rgba(7,9,17,.76)';g.beginPath();g.roundRect(W*.07,H*.035,W*.86,H*.075,18);g.fill();
+ g.fillStyle=p.glow;g.beginPath();g.arc(W*.115,H*.072,16,0,Math.PI*2);g.fill();g.fillStyle='#071018';g.font='bold 19px system-ui';g.textAlign='center';g.fillText('♫',W*.115,H*.079);
  g.textAlign='left';g.fillStyle='rgba(255,255,255,.7)';g.font='600 12px system-ui';g.fillText('NOW PLAYING',W*.16,H*.061);
  g.fillStyle='#fff';g.font='700 18px system-ui';let label=songTitle.length>30?songTitle.slice(0,28)+'…':songTitle;g.fillText(label,W*.16,H*.087);
- // moving waveform bars, timed to scene; decorative visualizer, not actual lyric analysis
- for(let i=0;i<28;i++){const h=4+((Math.sin(t*2.2+i*.77)+1)*.5)*18;g.fillStyle=i<Math.floor((t%60)/60*28)?'#1ed760':'rgba(255,255,255,.28)';g.beginPath();g.roundRect(W*.60+i*W*.010,H*.076-h/2,W*.006,h,3);g.fill();}
+ for(let i=0;i<28;i++){const h=4+((Math.sin(t*2.2+i*.77)+1)*.5)*18;g.fillStyle=i<Math.floor((t%60)/60*28)?p.accent:'rgba(255,255,255,.28)';g.beginPath();g.roundRect(W*.60+i*W*.010,H*.076-h/2,W*.006,h,3);g.fill();}
  g.restore();
- // Scene captions tell a short story, changing in sync with the action.
- g.textAlign='center';g.fillStyle='rgba(255,255,255,.9)';g.font='700 19px system-ui';
- const caption=t<4?'SOMEWHERE QUIET':t<8?'THE DOOR OPENS':t<20?'LEAVE THE WORLD OUTSIDE':t<25?'TAKE A BREATH':t<34?'LET GO':'FLOAT AWAY';
- g.fillText(caption,W*.5,H*.145);
+ const lines=getLyricsForDuration(60);let active=null;
+ for(let i=0;i<lines.length;i++){if(t>=lines[i].time && (i===lines.length-1||t<lines[i+1].time)){active=lines[i];break;}}
+ if(active && active.text){
+  const enter=Math.min(1,Math.max(0,(t-active.time)/.28));
+  g.save();g.globalAlpha=enter;g.textAlign='center';g.shadowColor=C(p.glow,.8);g.shadowBlur=18;
+  const lyric=active.text.length>66?active.text.slice(0,63)+'…':active.text;
+  g.font='800 31px system-ui';const maxWidth=W*.78;const words=lyric.split(/\s+/),rows=[];let row='';
+  for(const word of words){const test=row?row+' '+word:word;if(g.measureText(test).width>maxWidth&&row){rows.push(row);row=word;}else row=test;}if(row)rows.push(row);
+  const y=H*.60-(rows.length-1)*22;g.fillStyle='rgba(5,7,16,.62)';g.beginPath();g.roundRect(W*.09,y-43,W*.82,rows.length*47+24,18);g.fill();
+  g.shadowBlur=0;g.fillStyle='#fff';rows.forEach((r,i)=>g.fillText(r,W*.5,y+i*45));
+  g.restore();
+ }
  // soft vignette and subtle film grain
  const edge=g.createRadialGradient(W*.5,H*.48,H*.22,W*.5,H*.48,H*.78);edge.addColorStop(0,'rgba(0,0,0,0)');edge.addColorStop(1,'rgba(0,0,0,.25)');g.fillStyle=edge;g.fillRect(0,0,W,H);
 }
+let lyricLines=[];
+function parseLRC(text){
+ const out=[];
+ for(const line of text.split(/\r?\n/)){
+  const matches=[...line.matchAll(/\[(\d{1,2}):(\d{2})(?:[.:](\d{1,3}))?\]/g)];
+  const words=line.replace(/\[(\d{1,2}):(\d{2})(?:[.:](\d{1,3}))?\]/g,'').trim();
+  if(!words)continue;
+  for(const m of matches){const frac=(m[3]||'0');out.push({time:Number(m[1])*60+Number(m[2])+Number(frac)/Math.pow(10,frac.length),text:words});}
+ }
+ return out.sort((a,b)=>a.time-b.time);
+}
+function getLyricsForDuration(duration=60){
+ if(lyricLines.length)return lyricLines;
+ const lines=($('lyricsText')?.value||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ if(!lines.length)return [];
+ const gap=duration/lines.length;
+ return lines.map((text,i)=>({time:i*gap,text}));
+}
+$('lyricsText')?.addEventListener('input',()=>{lyricLines=[];$('lyricsStatus').textContent='Lyrics will appear line by line across the video with approximate timing. For tighter sync, use an .LRC file.';drawScene(0);});
+$('lrcFile')?.addEventListener('change',async()=>{
+ const f=$('lrcFile').files?.[0];if(!f)return;
+ const parsed=parseLRC(await f.text());
+ if(!parsed.length){$('lyricsStatus').textContent='Could not find timestamps. Use LRC lines like [00:12.50] lyric text.';return;}
+ lyricLines=parsed;$('lyricsStatus').textContent=`Loaded ${parsed.length} timed lyric lines. They'll appear at their LRC timestamps.`;drawScene(0);
+});
 drawScene(0);
 async function convertWebMtoMP4(blob, report){
  // FFmpeg runs locally in this browser. Its core is downloaded only when MP4 export is requested.
@@ -365,14 +418,20 @@ async function convertWebMtoMP4(blob, report){
  return new Blob([data.buffer],{type:'video/mp4'});
 }
 $('videoBtn').addEventListener('click',async()=>{
- if(!processedBuffer){$('videoStatus').textContent='Create the 8D audio first.';return;}
+ if(!processedBuffer&&!spotifyTrackId()){$('videoStatus').textContent='Upload an audio file or add a Spotify track link first.';return;}
  if(!scene.captureStream||!window.MediaRecorder){$('videoStatus').textContent='This browser does not support in-browser video export. Try the latest Chrome browser.';return;}
- const btn=$('videoBtn');btn.disabled=true;btn.textContent='⏳ Recording your 1-minute story…';$('videoDownload').style.display='none';
+ const btn=$('videoBtn');btn.disabled=true;btn.textContent='⏳ Recording your 1-minute video…';$('videoDownload').style.display='none';
  let raf=0,stopped=false;
  try{
-  const fps=24,videoStream=scene.captureStream(fps),audioCtx=new AudioCtx(),audioDest=audioCtx.createMediaStreamDestination();
-  const audioSource=audioCtx.createBufferSource();audioSource.buffer=processedBuffer;audioSource.connect(audioDest);
-  const stream=new MediaStream([...videoStream.getVideoTracks(),...audioDest.stream.getAudioTracks()]);
+  const fps=24,videoStream=scene.captureStream(fps);
+  let audioCtx=null,audioSource=null,audioDest=null;
+  const tracks=[...videoStream.getVideoTracks()];
+  if(processedBuffer){
+   audioCtx=new AudioCtx();audioDest=audioCtx.createMediaStreamDestination();
+   audioSource=audioCtx.createBufferSource();audioSource.buffer=processedBuffer;audioSource.connect(audioDest);
+   tracks.push(...audioDest.stream.getAudioTracks());
+  }
+  const stream=new MediaStream(tracks);
   const mime=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(x=>MediaRecorder.isTypeSupported(x));
   if(!mime)throw new Error('This browser cannot export WebM video. Try Chrome on Android or a desktop browser.');
   const recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:2200000,audioBitsPerSecond:160000});const chunks=[];
@@ -380,34 +439,44 @@ $('videoBtn').addEventListener('click',async()=>{
   const startAt=performance.now();let lastUpdate=0;
   const animate=now=>{const sec=Math.min(60,(now-startAt)/1000);drawScene(sec);if(now-lastUpdate>700){$('videoStatus').textContent=`Recording animated scene… ${Math.floor(sec)} / 60 seconds`;lastUpdate=now;}if(sec<60&&!stopped)raf=requestAnimationFrame(animate);else if(!stopped){stopped=true;recorder.stop();}};
   recorder.onstop=async()=>{
-   cancelAnimationFrame(raf);try{await audioCtx.close();}catch(e){}
+   cancelAnimationFrame(raf);try{if(audioCtx)await audioCtx.close();}catch(e){}
    const webmBlob=new Blob(chunks,{type:mime});
    $('videoStatus').textContent='Recording complete. Converting to MP4 for better phone compatibility…';
    try{
     const mp4Blob=await convertWebMtoMP4(webmBlob,msg=>{$('videoStatus').textContent=msg;});
     const url=URL.createObjectURL(mp4Blob);
     $('videoDownload').href=url;
-    $('videoDownload').download=(selectedFile?.name.replace(/\.[^.]+$/,'')||'orbit')+'-'+chosenRoom+'-music-video.mp4';
+    $('videoDownload').download=(selectedFile?.name.replace(/\.[^.]+$/,'')||'afterglow')+'-'+chosenRoom+'-music-video.mp4';
     $('videoDownload').textContent='⬇ Download music video (MP4)';
     $('videoDownload').style.display='block';
-    $('videoStatus').textContent=`MP4 video ready · 60 seconds · vertical 9:16 · ${(mp4Blob.size/1048576).toFixed(1)} MB. Designed for phone galleries and social apps.`;
+    $('videoStatus').textContent=`MP4 video ready · 60 seconds · vertical 9:16 · ${(mp4Blob.size/1048576).toFixed(1)} MB.`+(processedBuffer?' Music is embedded.':' Visual-only export: add the Spotify song in TikTok/Instagram.');
    }catch(convErr){
     console.error(convErr);
     const url=URL.createObjectURL(webmBlob);
     $('videoDownload').href=url;
-    $('videoDownload').download=(selectedFile?.name.replace(/\.[^.]+$/,'')||'orbit')+'-'+chosenRoom+'-music-video.webm';
+    $('videoDownload').download=(selectedFile?.name.replace(/\.[^.]+$/,'')||'afterglow')+'-'+chosenRoom+'-music-video.webm';
     $('videoDownload').textContent='⬇ Download fallback video (WebM)';
     $('videoDownload').style.display='block';
     $('videoStatus').textContent='MP4 conversion could not finish on this phone. A WebM fallback is available; try again on a stronger connection/device. Details: '+(convErr.message||'conversion failed');
    }
-   btn.disabled=false;btn.textContent='✦ Create 1-minute music video';
+   btn.disabled=false;btn.textContent='✦ Export 1-minute MP4';
   };
-  recorder.start(1000);drawScene(0);audioSource.start(0);raf=requestAnimationFrame(animate);
- }catch(err){console.error(err);$('videoStatus').textContent=err.message||'Could not create the video on this browser.';btn.disabled=false;btn.textContent='✦ Create 1-minute music video';}
+  recorder.start(1000);drawScene(0);if(audioSource)audioSource.start(0);raf=requestAnimationFrame(animate);
+ }catch(err){console.error(err);$('videoStatus').textContent=err.message||'Could not create the video on this browser.';btn.disabled=false;btn.textContent='✦ Export 1-minute MP4';}
 });
 
 $('makeBtn').addEventListener('click',async()=>{
- if(!selectedFile||!AudioCtx)return;
+ if(!selectedFile){
+  if(spotifyTrackId()){
+   $('resultPanel').style.display='block';
+   $('status').textContent='Spotify link accepted for the visual edit. Add an audio file if you want music embedded in the exported video.';
+   $('videoStatus').textContent='Visual-only export is ready. Spotify audio cannot be captured by this page; add the song in TikTok or Instagram.';
+   $('resultPanel').scrollIntoView({behavior:'smooth',block:'start'});
+   return;
+  }
+  $('status').textContent='Upload audio or paste a valid Spotify track link first.';return;
+ }
+ if(!AudioCtx)return;
  $('makeBtn').disabled=true;$('makeBtn').textContent='⏳ Analysing & building your mix';
  try{
   setProgress(8,'Opening your audio locally…');
@@ -420,7 +489,7 @@ $('makeBtn').addEventListener('click',async()=>{
   const clipLen=Math.min(60,decoded.duration);
   const start=chooseBestStart(decoded,clipLen);
   const clip=sliceBuffer(ctx,decoded,start,clipLen);
-  setProgress(42,'Building a smooth HRTF orbit and adding subtle space…');
+  setProgress(42,'Adding subtle stereo depth, clarity and restrained ambience…');
   // Use a 44.1 kHz processing rate to reduce mobile memory use.
   if(clip.sampleRate>44100){
    const down=new OfflineAudioContext(clip.numberOfChannels,Math.ceil(clip.duration*44100),44100);
@@ -435,13 +504,13 @@ $('makeBtn').addEventListener('click',async()=>{
   $('clipPlayer').src=clipURL;$('outPlayer').src=outputURL;
   const mm=Math.floor(start/60),ss=Math.floor(start%60);
   $('clipMeta').textContent=`Auto-selected section · starts at ${mm}:${String(ss).padStart(2,'0')} · ${Math.round(clipLen)} seconds`;
-  $('outMeta').textContent=`Ready · HRTF spatial movement · stereo WAV · ${(blob.size/1048576).toFixed(1)} MB`;
-  $('download').href=outputURL;$('download').download=(selectedFile.name.replace(/\.[^.]+$/,'')||'track')+'-orbit-8d-best-minute.wav';
-  $('resultPanel').style.display='block';setProgress(100,'Your automated mix is ready. Listen with headphones, then download it below.');
+  $('outMeta').textContent=`Ready · natural stereo depth · normal listening level · WAV · ${(blob.size/1048576).toFixed(1)} MB`;
+  $('download').href=outputURL;$('download').download=(selectedFile.name.replace(/\.[^.]+$/,'')||'track')+'-afterglow-deep-stereo.wav';
+  $('resultPanel').style.display='block';setProgress(100,'Your sound is ready. Listen at a comfortable volume, then download it below.');
   await ctx.close();
  }catch(e){
   console.error(e);$('progress').style.display='none';
   $('status').textContent=e.message||'This browser could not process the file. Try a shorter MP3 or WAV.';
- }finally{$('makeBtn').disabled=!selectedFile;$('makeBtn').textContent='✦ Find the best part & create 8D';}
+ }finally{refreshBuildButton();}
 });
 </script></body></html>
