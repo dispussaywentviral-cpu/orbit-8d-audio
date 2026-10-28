@@ -12,7 +12,7 @@ main{max-width:760px;margin:auto;padding:24px 15px 46px}.brand{display:flex;alig
 .hero{text-align:center;padding:38px 0 24px}.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:2.3px;font-weight:850}.hero h1{font-size:clamp(39px,9vw,62px);line-height:.98;margin:14px 0;background:linear-gradient(100deg,#fff 15%,#c3b5ff 58%,#70f0ed);background-clip:text;color:transparent;letter-spacing:-2.8px}.hero p{color:var(--muted);line-height:1.65;max-width:510px;margin:auto;font-size:14px}
 .panel{background:linear-gradient(145deg,#171d30,#101522);border:1px solid var(--line);border-radius:23px;padding:19px;margin:14px 0;box-shadow:0 16px 50px #0003}.step{font-size:11px;letter-spacing:1.5px;color:var(--cyan);font-weight:850;margin-bottom:15px}.upload{display:block;border:1.5px dashed #62568e;border-radius:18px;padding:25px 13px;text-align:center;background:#17172b;cursor:pointer}.upload .emoji{font-size:34px}.upload h2{font-size:17px;margin:10px 0 5px}.upload p{font-size:12px;color:var(--muted);margin:0;line-height:1.6}.filename{font-size:12px;color:var(--cyan);margin-top:12px;overflow-wrap:anywhere}.hint{font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}#fileInput{display:none}
 .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.feature{border:1px solid var(--line);background:#0d1220;border-radius:15px;padding:13px}.feature b{font-size:13px;display:block;margin-bottom:5px}.feature span{font-size:11px;color:var(--muted);line-height:1.5;display:block}.btn{display:block;width:100%;border:0;border-radius:15px;padding:16px 18px;font-size:15px;font-weight:850;cursor:pointer;color:#090b13;background:linear-gradient(100deg,#b7a6ff,#6ce8ef);margin-top:15px}.btn:disabled{opacity:.45;cursor:not-allowed}.status{font-size:12px;color:var(--muted);line-height:1.6;margin-top:13px;text-align:center;min-height:19px}.progress{height:5px;background:#252c41;border-radius:99px;overflow:hidden;margin-top:12px;display:none}.progress span{height:100%;width:0;display:block;background:linear-gradient(90deg,var(--purple),var(--cyan));transition:width .25s}
-.result{display:none}.player{padding:13px;border:1px solid var(--line);border-radius:14px;background:#0b101c;margin-top:10px}.player label{display:block;font-size:12px;font-weight:750;margin-bottom:8px}.player audio{width:100%;height:39px}.meta{font-size:11px;color:var(--muted);line-height:1.6;margin-top:9px}.download{color:inherit;text-decoration:none;text-align:center}.room-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.room-option{border:1px solid var(--line);background:#0d1220;color:var(--text);border-radius:14px;padding:12px;text-align:left;cursor:pointer}.room-option.active{border-color:var(--purple);background:#28213f;box-shadow:inset 0 0 0 1px #a38cff55}.room-option b{display:block;font-size:12px;margin-bottom:5px}.room-option span{display:block;font-size:10px;color:var(--muted);line-height:1.4}.video-canvas{width:100%;aspect-ratio:9/16;display:block;border-radius:15px;background:#080a12;border:1px solid var(--line);margin-top:12px}.video-btn{background:linear-gradient(100deg,#e4b4ff,#a8a2ff,#70e7ed)}.footer{text-align:center;color:#777f96;font-size:11px;line-height:1.7;margin-top:24px}
+.result{display:none}.player{padding:13px;border:1px solid var(--line);border-radius:14px;background:#0b101c;margin-top:10px}.player label{display:block;font-size:12px;font-weight:750;margin-bottom:8px}.player audio{width:100%;height:39px}.meta{font-size:11px;color:var(--muted);line-height:1.6;margin-top:9px}.download{color:inherit;text-decoration:none;text-align:center}.room-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.room-option{border:1px solid var(--line);background:#0d1220;color:var(--text);border-radius:14px;padding:12px;text-align:left;cursor:pointer}.room-option.active{border-color:var(--purple);background:#28213f;box-shadow:inset 0 0 0 1px #a38cff55}.room-option b{display:block;font-size:12px;margin-bottom:5px}.room-option span{display:block;font-size:10px;color:var(--muted);line-height:1.4}.video-canvas{width:100%;aspect-ratio:9/16;display:block;border-radius:15px;background:#080a12;border:1px solid var(--line);margin-top:12px}.video-btn{background:linear-gradient(100deg,#e4b4ff,#a8a2ff,#70e7ed)} input:focus{outline:2px solid #a38cff;outline-offset:1px} #spotifyEmbed iframe{display:block;width:100%;border:0;border-radius:12px;min-height:152px}.footer{text-align:center;color:#777f96;font-size:11px;line-height:1.7;margin-top:24px}
 @media(min-width:560px){main{padding-top:30px}.panel{padding:24px}.hero{padding-top:50px}.feature-grid{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
@@ -25,6 +25,20 @@ main{max-width:760px;margin:auto;padding:24px 15px 46px}.brand{display:flex;alig
 <input id="fileInput" type="file" accept="audio/*">
 <div class="hint">Your file is processed locally in this browser; it is not sent to a server. Use audio you have permission to edit.</div>
 </section>
+
+<section class="panel">
+<div class="step">OPTIONAL / SPOTIFY TRACK CARD</div>
+<p style="font-size:13px;color:var(--muted);line-height:1.6;margin-top:-4px">Paste a Spotify song link to preview it here and add a matching now-playing card to your exported video.</p>
+<label for="spotifyUrl" style="display:block;font-size:12px;font-weight:750;margin:12px 0 7px">Spotify track link</label>
+<input id="spotifyUrl" type="url" inputmode="url" placeholder="https://open.spotify.com/track/…" style="width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:#0b101c;color:var(--text);font:inherit;font-size:13px">
+<label for="trackTitle" style="display:block;font-size:12px;font-weight:750;margin:12px 0 7px">Song title for the video card (optional)</label>
+<input id="trackTitle" type="text" maxlength="70" placeholder="Song title · artist" style="width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:#0b101c;color:var(--text);font:inherit;font-size:13px">
+<button id="spotifyPreviewBtn" class="btn" style="background:linear-gradient(100deg,#1ed760,#b7f7c8);margin-top:12px">♫ Preview Spotify track</button>
+<div id="spotifyStatus" class="status">Paste a Spotify link to preview it and add a now-playing card. Upload an audio file for processing.</div>
+<div id="spotifyEmbed" style="display:none;margin-top:12px;border-radius:14px;overflow:hidden;background:#101318"></div>
+<div class="hint">For actual 8D processing and video audio, upload a high-quality audio file you have permission to edit. Spotify does not expose raw song audio to this browser, so the link is for preview and the visual now-playing card only.</div>
+</section>
+
 <section class="panel">
 <div class="step">02 / CHOOSE YOUR WORLD</div>
 <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-top:-4px">Pick the room that matches your song's mood. The stickman story, lighting and floating sequence are animated automatically.</p>
@@ -58,7 +72,7 @@ main{max-width:760px;margin:auto;padding:24px 15px 46px}.brand{display:flex;alig
 <canvas id="sceneCanvas" class="video-canvas" width="720" height="1280"></canvas>
 <button id="videoBtn" class="btn video-btn">✦ Create 1-minute music video</button>
 <div id="videoStatus" class="status">Generate the audio first. Video export records the animation in real time and may take about one minute.</div>
-<a id="videoDownload" class="btn download" style="display:none" download="orbit-8d-music-video.webm">⬇ Download music video (WebM)</a>
+<a id="videoDownload" class="btn download" style="display:none" download="orbit-8d-music-video.mp4">⬇ Download music video (MP4)</a>
 <div class="hint">Listen with headphones at a comfortable volume. Different songs and earbuds will sound different.</div>
 </section>
 <div class="footer">ORBIT 8D · Automatic browser audio processing<br>“8D” is a creative stereo/spatial effect, not true physical surround sound. The one-minute picker estimates musical interest from audio features; it cannot understand lyrics or guarantee the objectively best moment.</div>
@@ -70,6 +84,19 @@ const AudioCtx=window.AudioContext||window.webkitAudioContext;
 document.querySelectorAll('.room-option').forEach(b=>b.addEventListener('click',()=>{
  document.querySelectorAll('.room-option').forEach(x=>x.classList.remove('active'));b.classList.add('active');chosenRoom=b.dataset.room;drawScene(0);
 }));
+$('spotifyPreviewBtn')?.addEventListener('click',()=>{
+ const raw=($('spotifyUrl').value||'').trim();
+ const match=raw.match(/open\.spotify\.com\/(?:intl-[a-z]{2}\/)?track\/([A-Za-z0-9]+)/i)||raw.match(/spotify:track:([A-Za-z0-9]+)/i);
+ if(!match){$('spotifyStatus').textContent='Paste a valid Spotify track URL, such as https://open.spotify.com/track/…';$('spotifyEmbed').style.display='none';return;}
+ const id=match[1];
+ $('spotifyEmbed').innerHTML=`<iframe title="Spotify track preview" src="https://open.spotify.com/embed/track/${id}?utm_source=generator&theme=0" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+ $('spotifyEmbed').style.display='block';
+ $('spotifyStatus').textContent='Spotify player loaded. This preview cannot be routed into the 8D processor; upload the same track as an audio file to create the mix.';
+ if(!$('trackTitle').value.trim())$('trackTitle').value='Spotify track';
+ drawScene(0);
+});
+$('trackTitle')?.addEventListener('input',()=>drawScene(0));
+
 $('fileInput').addEventListener('change',()=>{
  const f=$('fileInput').files?.[0]; if(!f)return;
  if(!f.type.startsWith('audio/')){$('status').textContent='Please select an audio file.';return;}
@@ -181,42 +208,162 @@ const palettes={
  moon:{a:'#080d18',b:'#293750',glow:'#b5c8ef',accent:'#e3e9ff',floor:'#171f2d'}
 };
 function drawScene(t){
- if(!g)return;const W=scene.width,H=scene.height,p=palettes[chosenRoom]||palettes.cosmic;
- const grad=g.createLinearGradient(0,0,W,H);grad.addColorStop(0,p.a);grad.addColorStop(.55,p.b);grad.addColorStop(1,'#050711');g.fillStyle=grad;g.fillRect(0,0,W,H);
- // soft atmospheric glow
- const glow=g.createRadialGradient(W*.7,H*.35,10,W*.7,H*.35,W*.72);glow.addColorStop(0,p.glow+'66');glow.addColorStop(1,p.glow+'00');g.fillStyle=glow;g.fillRect(0,0,W,H);
- // drifting stars / bubbles / city lights
- for(let i=0;i<65;i++){const x=(i*137.3+Math.sin(t*.22+i)*22)%W;const y=(i*211.7-t*(chosenRoom==='abyss'?8:3)+H*4)%H;g.globalAlpha=.18+((i*17)%70)/100;g.fillStyle=i%4===0?p.accent:'#ffffff';g.beginPath();g.arc(x,y,1+(i%3),0,Math.PI*2);g.fill();}g.globalAlpha=1;
- // room perspective and floor
- g.fillStyle=p.floor;g.beginPath();g.moveTo(0,H*.67);g.lineTo(W,H*.67);g.lineTo(W,H);g.lineTo(0,H);g.closePath();g.fill();
- g.strokeStyle=p.accent+'44';g.lineWidth=2;for(let i=0;i<8;i++){const y=H*.69+i*i*8;g.beginPath();g.moveTo(0,y);g.lineTo(W,y);g.stroke();}for(let i=0;i<9;i++){g.beginPath();g.moveTo(W*.5,H*.67);g.lineTo(i*100-100,H);g.stroke();}
- // back wall frame and door
- g.strokeStyle=p.accent+'66';g.lineWidth=4;g.strokeRect(W*.15,H*.13,W*.7,H*.53);
- const doorOpen=Math.max(0,Math.min(1,(t-7)/6));g.fillStyle='#080a14';g.fillRect(W*.29,H*.2,W*.28,H*.44);
- g.save();g.translate(W*.29,H*.2);g.transform(1,0,-doorOpen*.65,1,0,0);g.fillStyle=p.b;g.fillRect(0,0,W*.28,H*.44);g.strokeStyle=p.glow;g.lineWidth=4;g.strokeRect(0,0,W*.28,H*.44);g.fillStyle=p.accent;g.beginPath();g.arc(W*.23,H*.23,7,0,Math.PI*2);g.fill();g.restore();
- // bed appears in the room, floating gently later
- const lift=t>38?Math.min(105,(t-38)*4):0;const bedY=H*.68-lift+Math.sin(t*1.5)*4;
- g.save();g.shadowColor=p.glow;g.shadowBlur=26;g.fillStyle='#171b30';g.fillRect(W*.37,bedY,W*.48,H*.075);g.fillStyle='#d9dff6';g.fillRect(W*.39,bedY-24,W*.44,28);g.fillStyle=p.glow+'aa';g.fillRect(W*.37,bedY+H*.075-4,W*.48,7);g.restore();
- // Stickman position: walk in, move to bed, lie down, float
- let x,y,angle=0,lying=false;
- if(t<7){x=W*.16+t*13;y=H*.64+Math.sin(t*4)*4;}
- else if(t<14){x=W*.25+(t-7)*8;y=H*.64;}
- else if(t<25){x=W*.31+(t-14)*4.4;y=H*.64;}
- else if(t<32){x=W*.36+(t-25)*2;y=H*.64;}
- else {lying=true;x=W*.57;y=bedY-34-(t>38?Math.min(100,(t-38)*4):0);}
- const head=lying?14:15, torso=lying?0:47;
- g.save();g.translate(x,y);g.rotate(lying?-.02:0);g.strokeStyle='#f4f4ff';g.fillStyle='#f4f4ff';g.lineWidth=7;g.lineCap='round';
- g.beginPath();g.arc(0,-head,head,0,Math.PI*2);g.stroke();
- if(lying){g.beginPath();g.moveTo(14,-head+7);g.lineTo(67,-head+7);g.lineTo(91,-head+15);g.moveTo(36,-head+7);g.lineTo(48,-head+24);g.stroke();}
- else {g.beginPath();g.moveTo(0,0);g.lineTo(0,torso);const swing=Math.sin(t*5)*15;g.moveTo(0,12);g.lineTo(-19+swing,33);g.moveTo(0,12);g.lineTo(19-swing,32);g.moveTo(0,torso);g.lineTo(-14-swing*.7,torso+28);g.moveTo(0,torso);g.lineTo(15+swing*.7,torso+28);g.stroke();}
+ if(!g)return;
+ const W=scene.width,H=scene.height,p=palettes[chosenRoom]||palettes.cosmic;
+ const C=(hex,a=1)=>{const n=parseInt(hex.slice(1),16);return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`;};
+ const ease=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);};
+ const line=(x1,y1,x2,y2,color,width=2)=>{g.strokeStyle=color;g.lineWidth=width;g.beginPath();g.moveTo(x1,y1);g.lineTo(x2,y2);g.stroke();};
+ // Camera looks into a furnished room: ceiling/walls meet at the back, floor has real plank perspective.
+ const bg=g.createLinearGradient(0,0,W,H);bg.addColorStop(0,'#11131d');bg.addColorStop(.38,p.b);bg.addColorStop(1,'#080b13');g.fillStyle=bg;g.fillRect(0,0,W,H);
+ // Side walls and ceiling edges create actual room depth.
+ g.fillStyle=C(p.a,.98);g.beginPath();g.moveTo(0,0);g.lineTo(W,0);g.lineTo(W*.88,H*.60);g.lineTo(W*.12,H*.60);g.closePath();g.fill();
+ const leftWall=g.createLinearGradient(0,0,W*.26,H*.68);leftWall.addColorStop(0,'#10131f');leftWall.addColorStop(1,C(p.b,.94));
+ g.fillStyle=leftWall;g.beginPath();g.moveTo(0,0);g.lineTo(W*.12,H*.60);g.lineTo(W*.12,H*.79);g.lineTo(0,H*.68);g.closePath();g.fill();
+ const rightWall=g.createLinearGradient(W,0,W*.75,H*.65);rightWall.addColorStop(0,'#0a0d17');rightWall.addColorStop(1,C(p.b,.75));
+ g.fillStyle=rightWall;g.beginPath();g.moveTo(W,0);g.lineTo(W*.88,H*.60);g.lineTo(W*.88,H*.79);g.lineTo(W,H*.68);g.closePath();g.fill();
+ // Back wall finish: tasteful wall moulding, not neon game-grid lines.
+ g.strokeStyle='rgba(255,255,255,.09)';g.lineWidth=3;
+ g.strokeRect(W*.07,H*.075,W*.86,H*.49);
+ g.strokeRect(W*.095,H*.095,W*.81,H*.45);
+ // Warm ambient practical lighting, tinted by the chosen world.
+ const glow=g.createRadialGradient(W*.56,H*.39,8,W*.56,H*.39,H*.57);glow.addColorStop(0,C(p.glow,.25));glow.addColorStop(1,C(p.glow,0));g.fillStyle=glow;g.fillRect(0,0,W,H*.7);
+ // Window on back-left with glass, moon/city outside and layered fabric curtains.
+ const wx=W*.14,wy=H*.16,ww=W*.27,wh=H*.245;
+ g.save();g.shadowColor=p.glow;g.shadowBlur=28;
+ const glass=g.createLinearGradient(wx,wy,wx+ww,wy+wh);glass.addColorStop(0,'#0a2031');glass.addColorStop(.52,C(p.glow,.55));glass.addColorStop(1,'#10172b');
+ g.fillStyle=glass;g.fillRect(wx,wy,ww,wh);g.restore();
+ // outside silhouettes / stars / city lights
+ for(let i=0;i<12;i++){const xx=wx+10+((i*29)%Math.max(20,ww-20)),hh=wh*(.18+((i*17)%55)/100);g.fillStyle=i%3===0?C(p.accent,.4):'rgba(7,12,25,.72)';g.fillRect(xx,wy+wh-hh,7+(i%3)*4,hh);}
+ for(let i=0;i<20;i++){const xx=wx+((i*31+t*.12)%ww),yy=wy+((i*23)%wh);g.fillStyle='rgba(255,255,255,.7)';g.globalAlpha=.25+(i%4)*.12;g.beginPath();g.arc(xx,yy,1.5,0,Math.PI*2);g.fill();}g.globalAlpha=1;
+ g.strokeStyle='#b3a8a0';g.lineWidth=8;g.strokeRect(wx-4,wy-4,ww+8,wh+8);g.strokeStyle='rgba(255,255,255,.48)';g.lineWidth=3;line(wx+ww*.5,wy,wx+ww*.5,wy+wh,'rgba(255,255,255,.45)',3);line(wx,wy+wh*.56,wx+ww,wy+wh*.56,'rgba(255,255,255,.45)',3);
+ // Curtain rod and folds
+ line(wx-18,wy-13,wx+ww+18,wy-13,'#7c7181',5);
+ for(let side=0;side<2;side++){const x=side?wx+ww*.77:wx-10,w=ww*.23;const grad=g.createLinearGradient(x,0,x+w,0);grad.addColorStop(0,'#171827');grad.addColorStop(.45,chosenRoom==='neon'?'#44223f':'#333047');grad.addColorStop(1,'#111522');g.fillStyle=grad;g.beginPath();g.moveTo(x,wy-10);g.lineTo(x+w,wy-10);g.lineTo(x+w+(side?8:-3),wy+wh+H*.07);g.lineTo(x+(side?4:-4),wy+wh+H*.07);g.closePath();g.fill();for(let k=1;k<5;k++)line(x+k*w/5,wy,x+k*w/5+(side?4:-4),wy+wh+H*.06,'rgba(255,255,255,.08)',2);}
+ // Framed art over the headboard.
+ const ax=W*.49,ay=H*.16,aw=W*.17,ah=H*.14;
+ g.fillStyle='#211f2a';g.fillRect(ax-7,ay-7,aw+14,ah+14);g.strokeStyle='#b5a7a0';g.lineWidth=4;g.strokeRect(ax-7,ay-7,aw+14,ah+14);
+ const art=g.createLinearGradient(ax,ay,ax+aw,ay+ah);art.addColorStop(0,C(p.glow,.85));art.addColorStop(1,'#171b2c');g.fillStyle=art;g.fillRect(ax,ay,aw,ah);
+ g.strokeStyle=C(p.accent,.7);g.lineWidth=3;g.beginPath();g.moveTo(ax+aw*.08,ay+ah*.75);g.bezierCurveTo(ax+aw*.3,ay+ah*.12,ax+aw*.55,ay+ah*.98,ax+aw*.9,ay+ah*.25);g.stroke();
+ // Doorway: a real dark hallway behind the frame, with floor/wall perspective.
+ const dx=W*.735,dy=H*.205,dw=W*.205,dh=H*.405;
+ g.fillStyle='#07080d';g.fillRect(dx-13,dy-13,dw+26,dh+25);
+ // hallway visible through the opening
+ const hall=g.createLinearGradient(dx,dy,dx+dw,dy+dh);hall.addColorStop(0,'#090b13');hall.addColorStop(.5,C(p.b,.7));hall.addColorStop(1,'#1b1b2a');g.fillStyle=hall;g.fillRect(dx,dy,dw,dh);
+ g.fillStyle='rgba(0,0,0,.45)';g.beginPath();g.moveTo(dx,dy+dh*.7);g.lineTo(dx+dw,dy+dh*.7);g.lineTo(dx+dw*.78,dy+dh);g.lineTo(dx+dw*.2,dy+dh);g.closePath();g.fill();
+ // Hallway baseboards recede into a lit distant doorway.
+ line(dx+4,dy+dh*.72,dx+dw*.94,dy+dh*.72,C(p.glow,.25),3);
+ const farX=dx+dw*.31,farY=dy+dh*.15,farW=dw*.36,farH=dh*.56;
+ g.fillStyle=C(p.glow,.08);g.fillRect(farX,farY,farW,farH);g.strokeStyle=C(p.accent,.24);g.lineWidth=3;g.strokeRect(farX,farY,farW,farH);
+ // The actual door rotates on its hinge; it progressively reveals the hallway.
+ const open=ease((t-1.0)/4.4);
+ g.save();g.translate(dx+dw,dy);
+ const panelW=dw*(1-open*.78);
+ g.fillStyle=chosenRoom==='neon'?'#38243c':chosenRoom==='abyss'?'#18343c':'#342f3a';
+ g.shadowColor='rgba(0,0,0,.55)';g.shadowBlur=18;g.fillRect(-panelW,0,panelW,dh);g.shadowBlur=0;
+ g.strokeStyle='#6d6173';g.lineWidth=5;g.strokeRect(-panelW+3,3,panelW-6,dh-6);
+ g.strokeStyle='rgba(255,255,255,.13)';g.lineWidth=4;g.strokeRect(-panelW*.82,dh*.08,panelW*.64,dh*.36);g.strokeRect(-panelW*.82,dh*.53,panelW*.64,dh*.37);
+ g.fillStyle='#c3a979';g.beginPath();g.arc(-panelW*.14,dh*.53,6,0,Math.PI*2);g.fill();
  g.restore();
- // floating wave ribbons intensify as character rises
- const intensity=Math.max(0,Math.min(1,(t-30)/18));g.lineWidth=3;for(let k=0;k<4;k++){g.beginPath();for(let xx=0;xx<=W;xx+=8){const yy=H*(.43+k*.045)+Math.sin(xx*.012+t*.9+k)*18*intensity+Math.sin(xx*.026-t*.6)*7;xx===0?g.moveTo(xx,yy):g.lineTo(xx,yy);}g.strokeStyle=p.accent+(intensity>.1?'44':'16');g.stroke();}
- // story labels, minimal cinematic typography
- g.fillStyle='#ffffffcc';g.font='600 19px system-ui';g.textAlign='center';let caption=t<7?'SOMEWHERE ELSE':t<14?'OPEN THE DOOR':t<25?'LEAVE THE WORLD BEHIND':t<38?'LET THE MUSIC FIND YOU':'FLOAT AWAY';g.fillText(caption,W/2,H*.085);
- g.fillStyle=p.accent+'aa';g.fillRect(W*.35,H*.93,W*.3,3);
+ g.strokeStyle='#a89a9c';g.lineWidth=9;g.strokeRect(dx-5,dy-5,dw+10,dh+10);
+ // Floor with wooden planks and perspective, avoiding the old wireframe look.
+ const fy=H*.60;const floor=g.createLinearGradient(0,fy,0,H);floor.addColorStop(0,'#39303a');floor.addColorStop(.32,'#241f2b');floor.addColorStop(1,'#0c1019');g.fillStyle=floor;g.fillRect(0,fy,W,H-fy);
+ g.beginPath();g.moveTo(0,fy);g.lineTo(W*.12,fy*.0+H*.79);g.lineTo(W*.88,H*.79);g.lineTo(W,fy);g.closePath();g.fillStyle='rgba(0,0,0,.16)';g.fill();
+ for(let i=0;i<9;i++){const u=i/8,y=fy+(u*u)*(H-fy);line(0,y,W,y,'rgba(225,205,190,.075)',2);}
+ for(let i=0;i<8;i++){const bottomX=i*W/7;line(W*.5,fy,bottomX,H,'rgba(225,205,190,.055)',2);}
+ // Baseboards and warm light spilling from the hallway.
+ line(0,fy,W*.12,H*.79,'rgba(220,202,195,.25)',6);line(W*.88,H*.79,W,fy,'rgba(220,202,195,.25)',6);
+ const spill=g.createRadialGradient(dx+dw*.35,H*.65,2,dx+dw*.35,H*.65,H*.38);spill.addColorStop(0,C(p.glow,.18));spill.addColorStop(1,C(p.glow,0));g.fillStyle=spill;g.fillRect(W*.35,H*.48,W*.65,H*.45);
+ // Large soft rug under bed, perspective corners and fabric texture.
+ g.save();g.beginPath();g.moveTo(W*.18,H*.68);g.lineTo(W*.83,H*.68);g.lineTo(W*.99,H*.96);g.lineTo(W*.03,H*.96);g.closePath();g.fillStyle=chosenRoom==='neon'?'#312034':'#292639';g.fill();g.strokeStyle=C(p.glow,.27);g.lineWidth=4;g.stroke();g.strokeStyle='rgba(255,255,255,.06)';g.lineWidth=2;for(let i=0;i<7;i++){line(W*(.22+i*.08),H*.70,W*(.09+i*.115),H*.94,'rgba(255,255,255,.045)',2);}g.restore();
+ // Plant in the corner, with pot and curved leaves.
+ const plantX=W*.105,plantY=H*.605;g.fillStyle='#27212b';g.beginPath();g.moveTo(plantX-24,plantY);g.lineTo(plantX+24,plantY);g.lineTo(plantX+18,plantY+55);g.lineTo(plantX-18,plantY+55);g.closePath();g.fill();
+ for(let i=0;i<7;i++){const bx=plantX+(i-3)*8,by=plantY+3;g.strokeStyle=chosenRoom==='abyss'?'#5daaa0':'#648c79';g.lineWidth=5;g.beginPath();g.moveTo(plantX,plantY+5);g.quadraticCurveTo(bx+(i-3)*7,plantY-38-i%3*7,bx,plantY-74-(i%3)*9);g.stroke();g.fillStyle=chosenRoom==='abyss'?'#3d827d':'#456653';g.beginPath();g.ellipse(bx,plantY-57-(i%3)*9,8,19,(i-3)*.18,0,Math.PI*2);g.fill();}
+ // Bedside table with drawers, lamp and pool of warm light.
+ const nx=W*.16,ny=H*.585,nw=W*.17,nh=H*.12;
+ g.fillStyle='#181722';g.fillRect(nx,ny,nw,nh);g.fillStyle='#3b3036';g.fillRect(nx-5,ny,nw+10,10);g.fillStyle='#27232e';g.fillRect(nx+8,ny+28,nw-16,28);line(nx+15,ny+42,nx+nw-15,ny+42,'rgba(255,255,255,.12)',2);
+ const lx=nx+nw*.54,ly=ny-9;const lg=g.createRadialGradient(lx,ly,2,lx,ly,H*.22);lg.addColorStop(0,C(p.glow,.25));lg.addColorStop(1,C(p.glow,0));g.fillStyle=lg;g.fillRect(nx-W*.10,ny-H*.2,W*.45,H*.28);
+ g.fillStyle='#d2c4ae';g.beginPath();g.moveTo(lx-22,ly-35);g.lineTo(lx+22,ly-35);g.lineTo(lx+13,ly-4);g.lineTo(lx-13,ly-4);g.closePath();g.fill();g.fillStyle='#8c7b6f';g.fillRect(lx-4,ly-4,8,27);g.fillRect(lx-17,ly+21,34,5);
+ // Bed fixed firmly on the rug: headboard behind, legs and mattress aligned to perspective.
+ const bx=W*.31,by=H*.605,bw=W*.56,bedDepth=H*.19;
+ g.fillStyle='rgba(0,0,0,.42)';g.beginPath();g.ellipse(bx+bw*.53,by+bedDepth*.93,bw*.55,bedDepth*.18,0,0,Math.PI*2);g.fill();
+ // headboard behind bed
+ const headGrad=g.createLinearGradient(bx,by-H*.055,bx+bw,by);headGrad.addColorStop(0,'#55434a');headGrad.addColorStop(.5,'#302d3c');headGrad.addColorStop(1,'#493741');
+ g.fillStyle=headGrad;g.beginPath();g.roundRect(bx,by-H*.07,bw,H*.12,14);g.fill();g.strokeStyle='rgba(255,255,255,.12)';g.lineWidth=3;g.strokeRect(bx+8,by-H*.06,bw-16,H*.095);
+ // mattress top trapezoid with visible thickness
+ g.fillStyle='#1c1a27';g.beginPath();g.moveTo(bx,by);g.lineTo(bx+bw,by);g.lineTo(bx+bw+W*.035,by+bedDepth*.75);g.lineTo(bx-W*.025,by+bedDepth*.75);g.closePath();g.fill();
+ const mattress=g.createLinearGradient(bx,by,bx+bw,by+bedDepth*.7);mattress.addColorStop(0,'#d5cbd1');mattress.addColorStop(.55,'#91899b');mattress.addColorStop(1,'#4a4659');
+ g.fillStyle=mattress;g.beginPath();g.moveTo(bx+W*.015,by+6);g.lineTo(bx+bw-W*.015,by+6);g.lineTo(bx+bw+W*.02,by+bedDepth*.58);g.lineTo(bx-W*.01,by+bedDepth*.58);g.closePath();g.fill();
+ // two pillows near the headboard
+ g.fillStyle='#eee4e2';g.beginPath();g.roundRect(bx+W*.035,by+8,W*.19,H*.055,14);g.fill();g.fillStyle='#c7b9c5';g.beginPath();g.roundRect(bx+W*.25,by+8,W*.17,H*.055,14);g.fill();
+ // duvet folds over the front half
+ const dyv=g.createLinearGradient(bx,by+H*.06,bx+bw,by+bedDepth*.6);dyv.addColorStop(0,'#9b91ae');dyv.addColorStop(.35,'#5e5a76');dyv.addColorStop(1,'#343244');
+ g.fillStyle=dyv;g.beginPath();g.moveTo(bx+W*.02,by+H*.075);g.quadraticCurveTo(bx+bw*.45,by+H*.04,bx+bw-W*.015,by+H*.075);g.lineTo(bx+bw+W*.02,by+bedDepth*.58);g.quadraticCurveTo(bx+bw*.62,by+bedDepth*.70,bx-W*.01,by+bedDepth*.58);g.closePath();g.fill();
+ for(let i=0;i<5;i++){g.beginPath();g.moveTo(bx+W*(.07+i*.085),by+H*.08);g.bezierCurveTo(bx+W*(.09+i*.085),by+H*.12,bx+W*(.12+i*.085),by+H*.17,bx+W*(.15+i*.085),by+bedDepth*.53);g.strokeStyle='rgba(255,255,255,.13)';g.lineWidth=3;g.stroke();}
+ // Tiny detail: floor lamp glow on the far right and soft shadowing at frame edges.
+ const vignette=g.createRadialGradient(W*.5,H*.46,H*.2,W*.5,H*.46,H*.78);vignette.addColorStop(0,'rgba(0,0,0,0)');vignette.addColorStop(1,'rgba(0,0,0,.42)');g.fillStyle=vignette;g.fillRect(0,0,W,H);
+ // Character path: enters from the hall, approaches the bed, gently reclines, then floats.
+ const enter=ease((t-2.2)/4.8),walk=ease((t-6.5)/13),lie=ease((t-23)/9),float=ease((t-34)/9);
+ let sx,sy;
+ if(t<2.2){sx=W*1.035;sy=H*.59;}
+ else if(t<7){sx=W*(.97-.09*enter);sy=H*(.60+.035*enter);}
+ else if(t<20){sx=W*(.88-.33*walk);sy=H*(.635+.095*walk);}
+ else {sx=W*.55;sy=H*.70;}
+ const scale=.72+.28*ease((sy/H-.58)/.2);
+ const floatingOffset=H*.105*float+Math.sin(t*.75)*4*float;
+ g.save();g.translate(sx,sy-floatingOffset);g.scale(scale,scale);
+ // Rotate the whole figure gradually around the hips, so lying down is a continuous movement rather than a pose jump.
+ const angle=-Math.PI*.5*lie;g.rotate(angle);
+ g.strokeStyle='#f5f0e9';g.fillStyle='#f5f0e9';g.lineCap='round';g.lineJoin='round';g.lineWidth=7;
+ const step=t>6.5&&t<20?Math.sin(t*3.8)*13:0;
+ g.beginPath();g.arc(0,-43,13,0,Math.PI*2);g.stroke();
+ g.beginPath();g.moveTo(0,-29);g.lineTo(0,8);
+ g.moveTo(0,-18);g.lineTo(-16+step,0);g.moveTo(0,-18);g.lineTo(16-step,0);
+ g.moveTo(0,8);g.lineTo(-12-step*.5,38);g.moveTo(0,8);g.lineTo(13+step*.5,38);g.stroke();
+ g.restore();
+ // The bed stays planted; only the person and ambience rise during the floating sequence.
+ const intensity=ease((t-31)/16);
+ for(let k=0;k<4;k++){g.beginPath();for(let xx=0;xx<=W;xx+=8){const yy=H*(.48+k*.035)+Math.sin(xx*.009+t*.65+k)*7*intensity+Math.sin(xx*.021-t*.4)*4;xx===0?g.moveTo(xx,yy):g.lineTo(xx,yy);}g.strokeStyle=C(p.accent,.025+intensity*.09);g.lineWidth=3;g.stroke();}
+ for(let i=0;i<24;i++){const xx=(i*137.3+Math.sin(t*.25+i)*11)%W,yy=(i*191.7-t*1.8+H*4)%H;g.globalAlpha=.08+((i*13)%18)/100;g.fillStyle=i%3===0?p.accent:'#fff';g.beginPath();g.arc(xx,yy,1+(i%2),0,Math.PI*2);g.fill();}g.globalAlpha=1;
+ // Elegant minimal music-card overlay, filled from the optional title field.
+ const songTitle=($('trackTitle')?.value||'').trim()||'YOUR SONG';
+ g.save();g.fillStyle='rgba(7,9,17,.70)';g.beginPath();g.roundRect(W*.07,H*.035,W*.86,H*.075,18);g.fill();
+ g.fillStyle='#1ed760';g.beginPath();g.arc(W*.115,H*.072,16,0,Math.PI*2);g.fill();g.fillStyle='#06100a';g.font='bold 19px system-ui';g.textAlign='center';g.fillText('▶',W*.115,H*.079);
+ g.textAlign='left';g.fillStyle='rgba(255,255,255,.7)';g.font='600 12px system-ui';g.fillText('NOW PLAYING',W*.16,H*.061);
+ g.fillStyle='#fff';g.font='700 18px system-ui';let label=songTitle.length>30?songTitle.slice(0,28)+'…':songTitle;g.fillText(label,W*.16,H*.087);
+ // moving waveform bars, timed to scene; decorative visualizer, not actual lyric analysis
+ for(let i=0;i<28;i++){const h=4+((Math.sin(t*2.2+i*.77)+1)*.5)*18;g.fillStyle=i<Math.floor((t%60)/60*28)?'#1ed760':'rgba(255,255,255,.28)';g.beginPath();g.roundRect(W*.60+i*W*.010,H*.076-h/2,W*.006,h,3);g.fill();}
+ g.restore();
+ // Scene captions tell a short story, changing in sync with the action.
+ g.textAlign='center';g.fillStyle='rgba(255,255,255,.9)';g.font='700 19px system-ui';
+ const caption=t<4?'SOMEWHERE QUIET':t<8?'THE DOOR OPENS':t<20?'LEAVE THE WORLD OUTSIDE':t<25?'TAKE A BREATH':t<34?'LET GO':'FLOAT AWAY';
+ g.fillText(caption,W*.5,H*.145);
+ // soft vignette and subtle film grain
+ const edge=g.createRadialGradient(W*.5,H*.48,H*.22,W*.5,H*.48,H*.78);edge.addColorStop(0,'rgba(0,0,0,0)');edge.addColorStop(1,'rgba(0,0,0,.25)');g.fillStyle=edge;g.fillRect(0,0,W,H);
 }
 drawScene(0);
+async function convertWebMtoMP4(blob, report){
+ // FFmpeg runs locally in this browser. Its core is downloaded only when MP4 export is requested.
+ report('Loading the MP4 converter (first use may download several MB)…');
+ const mod=await import('https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js');
+ const {FFmpeg}=mod;
+ const ffmpeg=new FFmpeg();
+ ffmpeg.on('log',({message})=>{if(message&&/frame=|time=/.test(message))report('Converting video to MP4…');});
+ const base='https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd';
+ const toBlobURL=async(url,type)=>{const r=await fetch(url);if(!r.ok)throw new Error('Could not download MP4 converter assets.');return URL.createObjectURL(new Blob([await r.arrayBuffer()],{type}));};
+ const coreURL=await toBlobURL(base+'/ffmpeg-core.js','text/javascript');
+ const wasmURL=await toBlobURL(base+'/ffmpeg-core.wasm','application/wasm');
+ const workerURL=await toBlobURL(base+'/ffmpeg-core.worker.js','text/javascript');
+ await ffmpeg.load({coreURL,wasmURL,workerURL});
+ const input='orbit-input.webm',output='orbit-output.mp4';
+ await ffmpeg.writeFile(input,new Uint8Array(await blob.arrayBuffer()));
+ report('Encoding a phone-compatible MP4…');
+ await ffmpeg.exec(['-i',input,'-c:v','libx264','-preset','ultrafast','-crf','27','-pix_fmt','yuv420p','-c:a','aac','-b:a','160k','-movflags','+faststart',output]);
+ const data=await ffmpeg.readFile(output);
+ if(!data||!data.length)throw new Error('MP4 conversion returned an empty file.');
+ try{await ffmpeg.deleteFile(input);await ffmpeg.deleteFile(output);ffmpeg.terminate();}catch(e){}
+ URL.revokeObjectURL(coreURL);URL.revokeObjectURL(wasmURL);URL.revokeObjectURL(workerURL);
+ return new Blob([data.buffer],{type:'video/mp4'});
+}
 $('videoBtn').addEventListener('click',async()=>{
  if(!processedBuffer){$('videoStatus').textContent='Create the 8D audio first.';return;}
  if(!scene.captureStream||!window.MediaRecorder){$('videoStatus').textContent='This browser does not support in-browser video export. Try the latest Chrome browser.';return;}
@@ -232,7 +379,29 @@ $('videoBtn').addEventListener('click',async()=>{
   recorder.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
   const startAt=performance.now();let lastUpdate=0;
   const animate=now=>{const sec=Math.min(60,(now-startAt)/1000);drawScene(sec);if(now-lastUpdate>700){$('videoStatus').textContent=`Recording animated scene… ${Math.floor(sec)} / 60 seconds`;lastUpdate=now;}if(sec<60&&!stopped)raf=requestAnimationFrame(animate);else if(!stopped){stopped=true;recorder.stop();}};
-  recorder.onstop=async()=>{cancelAnimationFrame(raf);try{await audioCtx.close();}catch(e){};const blob=new Blob(chunks,{type:mime});const url=URL.createObjectURL(blob);$('videoDownload').href=url;$('videoDownload').download=(selectedFile?.name.replace(/\.[^.]+$/,'')||'orbit')+'-'+chosenRoom+'-music-video.webm';$('videoDownload').style.display='block';$('videoStatus').textContent=`Video ready · 60 seconds · 9:16 vertical · ${(blob.size/1048576).toFixed(1)} MB. WebM format; convert to MP4 if your editor requires it.`;btn.disabled=false;btn.textContent='✦ Create 1-minute music video';};
+  recorder.onstop=async()=>{
+   cancelAnimationFrame(raf);try{await audioCtx.close();}catch(e){}
+   const webmBlob=new Blob(chunks,{type:mime});
+   $('videoStatus').textContent='Recording complete. Converting to MP4 for better phone compatibility…';
+   try{
+    const mp4Blob=await convertWebMtoMP4(webmBlob,msg=>{$('videoStatus').textContent=msg;});
+    const url=URL.createObjectURL(mp4Blob);
+    $('videoDownload').href=url;
+    $('videoDownload').download=(selectedFile?.name.replace(/\.[^.]+$/,'')||'orbit')+'-'+chosenRoom+'-music-video.mp4';
+    $('videoDownload').textContent='⬇ Download music video (MP4)';
+    $('videoDownload').style.display='block';
+    $('videoStatus').textContent=`MP4 video ready · 60 seconds · vertical 9:16 · ${(mp4Blob.size/1048576).toFixed(1)} MB. Designed for phone galleries and social apps.`;
+   }catch(convErr){
+    console.error(convErr);
+    const url=URL.createObjectURL(webmBlob);
+    $('videoDownload').href=url;
+    $('videoDownload').download=(selectedFile?.name.replace(/\.[^.]+$/,'')||'orbit')+'-'+chosenRoom+'-music-video.webm';
+    $('videoDownload').textContent='⬇ Download fallback video (WebM)';
+    $('videoDownload').style.display='block';
+    $('videoStatus').textContent='MP4 conversion could not finish on this phone. A WebM fallback is available; try again on a stronger connection/device. Details: '+(convErr.message||'conversion failed');
+   }
+   btn.disabled=false;btn.textContent='✦ Create 1-minute music video';
+  };
   recorder.start(1000);drawScene(0);audioSource.start(0);raf=requestAnimationFrame(animate);
  }catch(err){console.error(err);$('videoStatus').textContent=err.message||'Could not create the video on this browser.';btn.disabled=false;btn.textContent='✦ Create 1-minute music video';}
 });
