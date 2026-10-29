@@ -14,7 +14,7 @@ main{max-width:760px;margin:auto;padding:28px 16px 50px}.brand{display:flex;alig
 .row{display:flex;align-items:center;justify-content:space-between;gap:12px}.section-title{font-size:15px;font-weight:750;margin:0 0 17px}.preset-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.preset{border:1px solid var(--line);background:#0e1220;color:var(--text);border-radius:13px;padding:13px;text-align:left;cursor:pointer}.preset.active{border-color:var(--purple);background:#292342;box-shadow:inset 0 0 0 1px #9b87ff55}.preset strong{display:block;font-size:13px}.preset span{font-size:11px;color:var(--muted);display:block;margin-top:4px}
 .control{margin:20px 0 0}.control .row{font-size:13px;color:#e9eaff;margin-bottom:10px}.value{color:var(--cyan);font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--purple)}.hint{font-size:11px;color:var(--muted);line-height:1.5;margin-top:7px}
 .btn{width:100%;border:0;border-radius:14px;padding:15px 18px;font-size:15px;font-weight:800;cursor:pointer;color:#0a0b13;background:linear-gradient(100deg,#b4a4ff,#6ce7ee);margin-top:12px}.btn:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#20263a;color:var(--text);border:1px solid var(--line)}.status{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px;text-align:center;min-height:18px}.players{display:grid;gap:12px}.player{padding:13px;border:1px solid var(--line);border-radius:13px;background:#0b0f1b}.player label{display:block;font-size:12px;font-weight:700;margin-bottom:8px}.player audio{width:100%;height:38px}.small{font-size:11px;color:var(--muted);line-height:1.5}.footer{text-align:center;color:#7f879d;font-size:11px;margin-top:24px;line-height:1.7}#fileInput{display:none}
-@media(min-width:560px){.preset-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.panel{padding:24px}.hero{padding-top:48px}}
+@media(min-width:560px){.preset-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.panel{padding:24px}.hero{padding-top:48px}}
 
 .visual-stage{position:relative;overflow:hidden;border-radius:18px;background:#050608;border:1px solid #34384a;margin-top:14px}
 #visualCanvas{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#050608}
@@ -39,9 +39,17 @@ main{max-width:760px;margin:auto;padding:28px 16px 50px}.brand{display:flex;alig
       <button class="preset" data-preset="gentle"><strong>☁️ Gentle float</strong><span>Soft, dreamy motion</span></button>
       <button class="preset active" data-preset="classic"><strong>🌀 Classic 8D</strong><span>Balanced ear-to-ear</span></button>
       <button class="preset" data-preset="deep"><strong>🌌 Deep space</strong><span>Slower, roomier feel</span></button>
-      <button class="preset" data-preset="fast"><strong>⚡ Fast orbit</strong><span>More obvious movement</span></button>
+      <button class="preset" data-preset="fast"><strong>⚡ Fast orbit</strong><span>Quick, clear movement</span></button>
+      <button class="preset" data-preset="dream"><strong>🌙 Midnight dream</strong><span>Slow drift, soft space</span></button>
+      <button class="preset" data-preset="cinema"><strong>🎬 Wide cinema</strong><span>Wide, cinematic ambience</span></button>
+      <button class="preset" data-preset="underwater"><strong>🌊 Underwater</strong><span>Fluid, muffled-space feel</span></button>
+      <button class="preset" data-preset="heartbeat"><strong>💓 Heartbeat</strong><span>Gentle pulse and sway</span></button>
+      <button class="preset" data-preset="tunnel"><strong>🕳️ Tunnel drift</strong><span>Long, roomy movement</span></button>
+      <button class="preset" data-preset="hypnotic"><strong>🪐 Hypnotic</strong><span>Steady, entrancing sweep</span></button>
+      <button class="preset" data-preset="storm"><strong>🌩️ Storm wave</strong><span>Stronger stereo travel</span></button>
+      <button class="preset" data-preset="clean"><strong>✨ Clean studio</strong><span>Clear sound, minimal reverb</span></button>
     </div>
-    <div class="control"><div class="row"><label for="speed">Orbit speed</label><span class="value" id="speedVal">8 sec / circle</span></div><input id="speed" type="range" min="4" max="20" value="8" step="1"><div class="hint">Lower seconds = faster movement. Start around 8–12 seconds for a smooth float.</div></div>
+    <div class="control"><div class="row"><label for="speed">Orbit speed</label><span class="value" id="speedVal">8 sec / circle</span></div><input id="speed" type="range" min="4" max="20" value="8" step="1"><div class="hint">Lower seconds = faster movement. Pick a vibe above for a tuned starting point. The seated listener also gets a subtle looping breathe/sway glow in the video scene.</div></div>
     <div class="control"><div class="row"><label for="width">Left ↔ right movement</label><span class="value" id="widthVal">90%</span></div><input id="width" type="range" min="20" max="100" value="90" step="5"></div>
     <div class="control"><div class="row"><label for="space">Space / reverb</label><span class="value" id="spaceVal">18%</span></div><input id="space" type="range" min="0" max="45" value="18" step="1"><div class="hint">A little space can make the sound feel wider. Too much can blur vocals.</div></div>
     <button class="btn" id="convertBtn" disabled>✦ Create my 8D audio</button>
@@ -78,7 +86,15 @@ const presets={
  gentle:{speed:14,width:55,space:12},
  classic:{speed:8,width:90,space:18},
  deep:{speed:16,width:75,space:30},
- fast:{speed:5,width:100,space:10}
+ fast:{speed:5,width:100,space:10},
+ dream:{speed:18,width:48,space:34},
+ cinema:{speed:12,width:82,space:28},
+ underwater:{speed:17,width:66,space:38},
+ heartbeat:{speed:7,width:58,space:16},
+ tunnel:{speed:20,width:72,space:40},
+ hypnotic:{speed:10,width:84,space:24},
+ storm:{speed:4,width:100,space:22},
+ clean:{speed:11,width:68,space:4}
 };
 function updateLabels(){
  $('speedVal').textContent=$('speed').value+' sec / circle';
@@ -228,6 +244,20 @@ function drawVisual(secondsNow=0) {
     vctx.drawImage(sceneImage,(sceneImage.width-side)/2,(sceneImage.height-side)/2,side,side,-w/2,-h/2,w,h);
     vctx.restore();
   } else { vctx.fillStyle='#050608';vctx.fillRect(0,0,w,h); }
+  // Looped seated-character idle: a soft breathing glow and tiny rhythmic sway
+  // keep the headphone listener feeling alive without covering the original artwork.
+  const idle=Math.sin(secondsNow*1.35)*.5+.5;
+  const idleBeat=Math.sin(secondsNow*.675)*.5+.5;
+  vctx.save();
+  vctx.globalCompositeOperation='screen';
+  const glow=vctx.createRadialGradient(w*.435,h*.405,2,w*.435,h*.405,w*.105);
+  glow.addColorStop(0,`rgba(205,220,255,${.018+idle*.028+beatPulse*.025})`);
+  glow.addColorStop(1,'rgba(205,220,255,0)');
+  vctx.fillStyle=glow;vctx.fillRect(w*.31,h*.28,w*.25,h*.29);
+  // Fine halo subtly rises/falls like a slow inhale/exhale.
+  vctx.strokeStyle=`rgba(220,230,255,${.025+idleBeat*.035})`;
+  vctx.lineWidth=2;vctx.beginPath();vctx.ellipse(w*.435,h*.405,w*(.061+idle*.0018),h*(.069+idle*.002),Math.sin(secondsNow*.48)*.012,0,Math.PI*2);vctx.stroke();
+  vctx.restore();
   const cx=w*.5, cy=h*.18, boardW=w*.47, boardH=Math.max(10,w*.018);
   const tilt=pan*.19 + (beat*.045*Math.sign(pan||1));
   vctx.save();vctx.translate(cx,cy);vctx.rotate(tilt);
